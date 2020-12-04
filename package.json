@@ -1,0 +1,39 @@
+{
+  "name": "statusapi",
+  "version": "2.0.0",
+  "description": "Checks server status",
+  "main": "index.js",
+  "scripts": {
+    "test": "bash ./tests/test.sh",
+    "dev": "tsc && node build/index.js",
+    "start": "node build/index.js",
+    "pretest": "npm install",
+    "postinstall": "tsc"
+  },
+  "author": "Domipas",
+  "license": "MIT",
+  "dependencies": {
+    "@types/cors": "^2.8.8",
+    "@types/express": "^4.17.9",
+    "@types/morgan": "^1.9.2",
+    "@types/node": "^14.14.10",
+    "@types/node-schedule": "^1.3.1",
+    "@types/ping": "^0.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.2.0",
+    "morgan": "^1.10.0",
+    "node-schedule": "^1.3.2",
+    "ping": "^0.3.0",
+    "tslib": "^2.0.3",
+    "typescript": "^4.1.2"
+  },
+  "devDependencies": {
+    "request": "^2.88.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github:Domipas/StatusServer"
+  }
+}
