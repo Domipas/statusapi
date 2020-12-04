@@ -2,7 +2,7 @@ import fs = require('fs');
 import { AuthKey } from "./interfaces";
 
 // Load apikeys
-export const keys: AuthKey[] = (fs.existsSync('./config') && fs.existsSync('./ssl'))? 
+export const keys: AuthKey[] = (fs.existsSync('./config'))? 
     JSON.parse(fs.readFileSync("./config/apikeys.json", "utf8")) : 
     JSON.parse(fs.readFileSync("./tests/test_keys.json", "utf8"));
 
