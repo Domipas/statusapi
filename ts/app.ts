@@ -4,6 +4,7 @@ import fs = require('fs');
 import cors = require('cors');
 import morgan = require('morgan');
 import helmet = require('helmet');
+import RateLimit = require('express-rate-limit');
 import express = require('express');
 import { auth } from "./auth";
 import { clientHandler } from "./handlers/clientHandler";
@@ -15,7 +16,14 @@ import { checker } from './checker';
 export function serverapp(checkscript: checker) : void {
     const app = express();
     
+    // set up rate limiter: maximum of five requests per minute
+    const limiter = RateLimit({
+        windowMs: 1*60*1000, // 1 minute
+        max: 15
+    });
+
     //Using middleware:
+    app.use(limiter);
     app.use(helmet());
     app.use(morgan('common'));
     app.use(express.json()); // for parsing application/json
