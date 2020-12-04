@@ -1,0 +1,17 @@
+node_modules/
+npm-debug.log
+test.js
+test.sh
+tests/
+README.md
+.github/
+tmp/
+build/
+.gitignore
+.gitattributes
+.git/
+SECURITY.md
+README.md
+.env
+ssl/
+config/
