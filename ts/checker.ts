@@ -28,6 +28,7 @@ export class checker {
     async check() {
         this.checktests(this.tests).then((res : Test[]) =>{
             fs.writeFileSync("./tmp/tests.json", JSON.stringify(res), "utf8");
+            console.log(res);
         })
         this.checktests(this.clientTests).then(function(res : Test[]){
             fs.writeFileSync("./tmp/clientstests.json", JSON.stringify(res), "utf8");
@@ -40,14 +41,14 @@ export class checker {
     }
     async checktests(array : Test[]) {
         for await (let element of array) {
-            element = this.checktest(element);
+            element = await this.checktest(element);
         }
         return array; 
     }
-    checktest(element : Test) : Test {
+    async checktest(element : Test) {
         switch (element.type) {
             case TypeTest.IP:
-                ping.promise.probe(element.adres, {min_reply: 5})
+                await ping.promise.probe(element.adres, {min_reply: 5})
                 .then(function(res : any){
                     if (res.alive) {
                     element.status = 200;
