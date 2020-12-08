@@ -27,6 +27,7 @@ jobs:
       uses: FerLuisxd/create-npmrc@3
       with:
         org_name: domipas  
+        auth_token: ${{secrets.NPM_TOKEN}}
       env:
         AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
     - run: npm test
