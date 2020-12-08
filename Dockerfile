@@ -11,7 +11,8 @@ COPY package*.json ./
 # Bundle app source
 COPY . .
 
-RUN echo "//npm.pkg.github.com/:_authToken=${{secrets.NPM_TOKEN}} @domipas:registry=https://npm.pkg.github.com" > .npmrc
+RUN echo "//npm.pkg.github.com/:_authToken=${{secrets.NPM_TOKEN}}" > .npmrc
+RUN echo "@domipas:registry=https://npm.pkg.github.com" > .npmrc
 
 #RUN npm install
 # If you are building your code for production
