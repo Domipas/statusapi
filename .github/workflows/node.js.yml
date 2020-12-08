@@ -23,4 +23,8 @@ jobs:
       uses: actions/setup-node@v2.1.2
       with:
         node-version: ${{ matrix.node-version }}
+        registry-url: https://npm.pkg.github.com
+        scope: '@domipas'
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - run: npm test
