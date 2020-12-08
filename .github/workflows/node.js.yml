@@ -24,8 +24,8 @@ jobs:
       with:
         always-auth: true
         node-version: ${{ matrix.node-version }}
-        registry-url: https://registry.npmjs.org
-        scope: '@octocat'
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@domipas'
     - name: Install dependencies
       run: npm ci
       env:
