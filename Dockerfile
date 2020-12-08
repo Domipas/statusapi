@@ -11,6 +11,7 @@ COPY package*.json ./
 # Bundle app source
 COPY . .
 
+RUN echo .npmrc
 
 #RUN npm install
 # If you are building your code for production
