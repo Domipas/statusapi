@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: echo "//npm.pkg.github.com/:_authToken='${{secrets.NPM_TOKEN}}' \n@domipas:registry=https://npm.pkg.github.com" > .npmrc
+      - run: echo "//npm.pkg.github.com/:_authToken='${{secrets.NPM_TOKEN}}' \n @domipas:registry=https://npm.pkg.github.com \n always-auth=true" > .npmrc
 
       - name: Run tests
         run: |
