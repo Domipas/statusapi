@@ -22,6 +22,7 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2.1.2
       with:
+        always-auth: true
         node-version: ${{ matrix.node-version }}
         registry-url: https://npm.pkg.github.com
         scope: '@domipas'
