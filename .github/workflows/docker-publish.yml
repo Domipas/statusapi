@@ -25,7 +25,7 @@ jobs:
             docker-compose --file docker-compose.test.yml build
             docker-compose --file docker-compose.test.yml run sut
           else
-            docker build . --file Dockerfile
+            docker build . --file Dockerfile --build-arg npm_token=${{secrets.NPM_TOKEN}}
           fi
 
   push:
