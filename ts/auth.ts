@@ -1,5 +1,6 @@
 import fs = require('fs');
 import { AuthKey } from "./interfaces";
+import { log } from "@domipas/lanchano";
 
 // Load apikeys
 export const keys: AuthKey[] = (fs.existsSync('./config'))? 
@@ -8,6 +9,9 @@ export const keys: AuthKey[] = (fs.existsSync('./config'))?
 
 // API Authorization
 export function auth(req : any, res : any, next : any) : void {
+    (typeof req.body == 'undefined')? 
+        log("StatusAPI", req.method+"-Request") : 
+        log("StatusAPI", req.method+"-Request", req.body);
     if (req.method == "OPTIONS") {
         next();
     } else {
