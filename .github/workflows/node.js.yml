@@ -23,11 +23,11 @@ jobs:
       uses: actions/setup-node@v2.1.2
       with:
         node-version: ${{ matrix.node-version }} 
-    - name: Create .npmrc file
-      uses: FerLuisxd/create-npmrc@3
-      with:
-        org_name: domipas  
-        auth_token: ${{secrets.NPM_TOKEN}}
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@domipas'
+
+    - run: npm install --ignore-scripts
       env:
-        AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
     - run: npm test
