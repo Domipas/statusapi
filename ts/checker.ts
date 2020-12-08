@@ -28,7 +28,6 @@ export class checker {
     async check() {
         this.checktests(this.tests).then((res : Test[]) =>{
             fs.writeFileSync("./tmp/tests.json", JSON.stringify(res), "utf8");
-            console.log(res);
         })
         this.checktests(this.clientTests).then(function(res : Test[]){
             fs.writeFileSync("./tmp/clientstests.json", JSON.stringify(res), "utf8");
