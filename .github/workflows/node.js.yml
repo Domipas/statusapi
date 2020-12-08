@@ -25,6 +25,8 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
       # Skip post-install scripts here, as a malicious
       # script could steal NODE_AUTH_TOKEN.
+      - name: Setup npmrc
+        run: echo "//npm.pkg.github.com/:_authToken=${{secrets.GPR_ACCESS_TOKEN}}" > .npmrc
       - run: npm install --ignore-scripts
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GPR_ACCESS_TOKEN }}
