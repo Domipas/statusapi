@@ -9,7 +9,7 @@ export const keys: AuthKey[] = (fs.existsSync('./config'))?
 
 // API Authorization
 export function auth(req : any, res : any, next : any) : void {
-    logger.logRequest("StatusAPI", req);
+    (fs.existsSync('./config'))? logger.logRequest("StatusAPI", req): null ;
     if (req.method == "OPTIONS") {
         next();
     } else {
