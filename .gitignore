@@ -120,3 +120,4 @@ tmp/
 build/
 ssl/
 config/
+.npmrc
