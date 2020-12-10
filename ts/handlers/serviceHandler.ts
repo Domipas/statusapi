@@ -19,12 +19,12 @@ export class serviceHandler extends Handler {
 
     private allServices(req : any, res : any) {
         res.writeHead(200, {'Content-Type': 'application/json'})
-        .end(JSON.stringify(this.checkscript.getTests));
+        .end(JSON.stringify(this.checkscript.testsResult));
     }
     private servicesTime(req : any, res : any) {
         try {
             res.writeHead(200, {'Content-Type': 'application/json'})
-            .end(JSON.stringify(this.findLatestTime(this.checkscript.getTests)));
+            .end(JSON.stringify(this.findLatestTime(this.checkscript.testsResult)));
         } catch (error) {
             res.status(500).end(error.message);
         }
@@ -34,7 +34,7 @@ export class serviceHandler extends Handler {
             if (typeof req.body["service"] == 'undefined') throw new Error("Bad syntax");
             const service: string[] = JSON.parse(req.body["service"]);
             if (typeof service != "object") throw new Error("Bad syntax");
-            const results : Result[] = this.findResult(this.checkscript.getTests, service);
+            const results : Result[] = this.findResult(this.checkscript.testsResult, service);
             if (results.length!=0) {
                 res.writeHead(200, {'Content-Type': 'application/json'});
                 res.end(JSON.stringify(results));

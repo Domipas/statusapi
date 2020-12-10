@@ -20,12 +20,12 @@ export class clientHandler extends Handler {
 
     private allClients(req : any, res : any) : void {
         res.writeHead(200, {'Content-Type': 'application/json'})
-        .end(JSON.stringify(this.checkscript.getUsers));
+        .end(JSON.stringify(this.checkscript.usersResult));
     }
     private clientTime(req : any, res : any) : void {
         try {
             res.writeHead(200, {'Content-Type': 'application/json'})
-            .end(JSON.stringify(this.findLatestTime(this.checkscript.getUsers)));
+            .end(JSON.stringify(this.findLatestTime(this.checkscript.usersResult)));
         } catch (error) {
             res.status(500).end(error.message);
         }
@@ -35,7 +35,7 @@ export class clientHandler extends Handler {
             if (typeof req.body["client"] == 'undefined') throw new Error("Bad syntax");
             const client: string[] = JSON.parse(req.body["client"]);
             if (typeof client != "object") throw new Error("Bad syntax");
-            const results : Result[] = this.findResult(this.checkscript.getUsers, client);
+            const results : Result[] = this.findResult(this.checkscript.usersResult, client);
             if (results.length!=0) {
                 res.writeHead(200, {'Content-Type': 'application/json'});
                 res.end(JSON.stringify(results));

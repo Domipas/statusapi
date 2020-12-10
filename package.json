@@ -1,8 +1,7 @@
 {
   "name": "statusapi",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Checks server status",
-  "main": "index.js",
   "scripts": {
     "test": "bash ./tests/test.sh",
     "dev": "tsc && node build/index.js",
