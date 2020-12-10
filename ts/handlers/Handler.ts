@@ -11,24 +11,21 @@ export abstract class Handler {
 
     public abstract handle(app : Express) : void
 
-    protected findLatestTime(jsonData : any) : Date {
+    protected findLatestTime(data : Result[]) : Date {
         let checkTime : Date = new Date(0);
-        jsonData.forEach((element: any) => {
-            if ((typeof element["timeChecked"] !== 'undefined') && (checkTime.getTime() < (new Date(element["timeChecked"]).getTime()))) {
-                checkTime = new Date(element["timeChecked"]);
+        data.forEach((element: Result) => {
+            if ((checkTime.getTime() < (element.timeChecked.getTime()))) {
+                checkTime = element.timeChecked;
             }
         });
         return checkTime;
     }
-    protected findResult(jsonData : any, names : string[]) : Result[] {
+    protected findResult(data : Result[], names : string[]) : Result[] {
         let results : Result[] = [];
-        jsonData.forEach((element: any) => {
+        data.forEach((element: Result) => {
             names.forEach((dataToCheck: string) => {
-                if (element["name"]==dataToCheck) {
-                    let resultResponse : Result = {name: element["name"], status: element["status"]};
-                    (typeof element["latency"] !== 'undefined')? resultResponse.latency = element["latency"] : null;
-                    (typeof element["timeChecked"] !== 'undefined')? resultResponse.timeChecked = element["timeChecked"] : null;
-                    results.push(resultResponse);
+                if (element.name==dataToCheck) {
+                    results.push(element);
                 }
             });
         });
