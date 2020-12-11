@@ -1,8 +1,8 @@
 import { Express } from 'express-serve-static-core';
-import { checker } from "../checker";
+import checker from "../checker";
 import { Result } from '../interfaces';
 
-export abstract class Handler {
+export default abstract class Handler {
     protected checkscript: checker;
 
     constructor(newchecker: checker) {

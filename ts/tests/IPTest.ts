@@ -1,8 +1,8 @@
 import ping = require('ping');
 import { Result } from "../interfaces";
-import { Test } from './Test';
+import Test from './Test';
 
-export class IPTest extends Test {
+export default class IPTest extends Test {
   
     adres: string;
     latency: number;
