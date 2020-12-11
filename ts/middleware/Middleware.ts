@@ -1,8 +1,8 @@
-import cors = require('cors');
-import morgan = require('morgan');
-import helmet = require('helmet');
-import RateLimit = require('express-rate-limit');
-import express = require('express');
+import cors from 'cors';
+import morgan from 'morgan';
+import helmet from 'helmet';
+import RateLimit from 'express-rate-limit';
+import express from 'express';
 import { Express } from 'express-serve-static-core';
 import auth from './auth';
 
