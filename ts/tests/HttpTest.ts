@@ -1,4 +1,4 @@
-import http = require('http');
+import http from 'http';
 import Test from './Test';
 
 export default class HttpTest extends Test {

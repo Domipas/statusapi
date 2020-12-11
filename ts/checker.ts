@@ -1,5 +1,5 @@
 import { TypeTest, Result } from "./interfaces";
-import fs = require('fs');
+import fs from 'fs';
 import Test from "./tests/Test";
 import HttpTest from "./tests/HttpTest";
 import HttpsTest from "./tests/HttpsTest";

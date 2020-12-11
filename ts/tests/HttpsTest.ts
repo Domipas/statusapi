@@ -1,4 +1,4 @@
-import https = require('https');
+import https from 'https';
 import Test from './Test';
 
 export default class HttpsTest extends Test {

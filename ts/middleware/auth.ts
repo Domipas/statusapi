@@ -1,4 +1,4 @@
-import fs = require('fs');
+import fs from 'fs';
 import { AuthKey } from "../interfaces";
 import { Lanchano } from "@domipas/lanchano";
 const logger = new Lanchano();
