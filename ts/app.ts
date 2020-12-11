@@ -1,41 +1,25 @@
 import http = require('http');
 import https = require('https');
 import fs = require('fs');
-import cors = require('cors');
-import morgan = require('morgan');
-import helmet = require('helmet');
-import RateLimit = require('express-rate-limit');
 import express = require('express');
-import auth from "./auth";
-import clientHandler from "./handlers/clientHandler";
-import serviceHandler from "./handlers/serviceHandler";
-import serverHandler from './handlers/serverHandler';
-import loginHandler from "./handlers/loginHandler";
+import ClientHandler from "./handlers/ClientHandler";
+import ServiceHandler from "./handlers/ServiceHandler";
+import ServerHandler from './handlers/ServerHandler';
+import LoginHandler from "./handlers/LoginHandler";
 import checker from './checker';
+import Middleware from './middleware/Middleware';
 
 export default function serverapp(checkscript: checker) : void {
     const app = express();
     
-    // set up rate limiter: maximum of five requests per minute
-    const limiter = RateLimit({
-        windowMs: 1*60*1000, // 1 minute
-        max: 15
-    });
-
     //Using middleware:
-    app.use(limiter);
-    app.use(helmet());
-    app.use(morgan('common'));
-    app.use(express.json()); // for parsing application/json
-    app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-    app.use(cors());
-    app.use(auth); // for API Authorization
+    new Middleware(app);
 
     //Handle requests:
-    new clientHandler(checkscript).handle(app);
-    new serviceHandler(checkscript).handle(app);
-    new serverHandler(checkscript).handle(app);
-    new loginHandler(checkscript).handle(app);
+    new ClientHandler(checkscript).handle(app);
+    new ServiceHandler(checkscript).handle(app);
+    new ServerHandler(checkscript).handle(app);
+    new LoginHandler(checkscript).handle(app);
 
     //Server options and starting.
     http.createServer(app).listen(process.env.PORT || 8284);

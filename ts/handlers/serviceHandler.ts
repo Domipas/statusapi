@@ -3,7 +3,7 @@ import { Result } from "../interfaces";
 import checker from "../checker";
 import Handler from "./Handler";
 
-export default class serviceHandler extends Handler {
+export default class ServiceHandler extends Handler {
 
     constructor(newchecker: checker) {
         super(newchecker);
