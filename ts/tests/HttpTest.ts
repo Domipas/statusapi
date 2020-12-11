@@ -1,7 +1,7 @@
 import http = require('http');
-import { Test } from './Test';
+import Test from './Test';
 
-export class HttpTest extends Test {
+export default class HttpTest extends Test {
   
     adres: string;
 

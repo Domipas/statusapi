@@ -1,10 +1,10 @@
 import { TypeTest, Result } from "./interfaces";
 import fs = require('fs');
-import { Test } from "./tests/Test";
-import { HttpTest } from "./tests/HttpTest";
-import { HttpsTest } from "./tests/HttpsTest";
-import { IPTest } from "./tests/IPTest";
-export class checker {
+import Test from "./tests/Test";
+import HttpTest from "./tests/HttpTest";
+import HttpsTest from "./tests/HttpsTest";
+import IPTest from "./tests/IPTest";
+export default class checker {
 
     private clientTests: Test[];
     private tests: Test[];
@@ -70,7 +70,7 @@ export class checker {
     }
 
     /** Methods: */
-    async check() {
+    public async check() {
         for await (let element of this.tests) {
             element.checkTest();
         }
@@ -78,7 +78,7 @@ export class checker {
             element.checkTest();
         }
     }
-    async checkClients() {
+    public async checkClients() {
         for await (let element of this.clientTests) {
             element.checkTest();
         }

@@ -1,6 +1,6 @@
 import { Result } from "../interfaces";
 
-export abstract class Test {
+export default abstract class Test {
     
     name: string;
     status: number;

@@ -1,8 +1,8 @@
 import { Express } from 'express-serve-static-core';
-import { checker } from "../checker";
-import { Handler } from "./Handler";
+import checker from "../checker";
+import Handler from "./Handler";
 
-export class serverHandler extends Handler {
+export default class serverHandler extends Handler {
 
     constructor(newchecker: checker) {
         super(newchecker)

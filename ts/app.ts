@@ -6,14 +6,14 @@ import morgan = require('morgan');
 import helmet = require('helmet');
 import RateLimit = require('express-rate-limit');
 import express = require('express');
-import { auth } from "./auth";
-import { clientHandler } from "./handlers/clientHandler";
-import { serviceHandler } from "./handlers/serviceHandler";
-import { serverHandler } from './handlers/serverHandler';
-import { loginHandler } from "./handlers/loginHandler";
-import { checker } from './checker';
+import auth from "./auth";
+import clientHandler from "./handlers/clientHandler";
+import serviceHandler from "./handlers/serviceHandler";
+import serverHandler from './handlers/serverHandler';
+import loginHandler from "./handlers/loginHandler";
+import checker from './checker';
 
-export function serverapp(checkscript: checker) : void {
+export default function serverapp(checkscript: checker) : void {
     const app = express();
     
     // set up rate limiter: maximum of five requests per minute

@@ -1,6 +1,6 @@
 import schedule = require('node-schedule');
-import { checker } from "./checker";
-import { serverapp } from "./app";
+import checker from "./checker";
+import serverapp from "./app";
 require('dotenv').config()
 const checkscript = new checker();
 

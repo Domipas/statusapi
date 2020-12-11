@@ -1,10 +1,10 @@
 import { AuthKey } from "../interfaces";
 import { keys } from "../auth";
-import { checker } from '../checker';
-import { Handler } from './Handler';
+import checker from '../checker';
+import Handler from './Handler';
 import { Express } from 'express-serve-static-core';
 
-export class loginHandler extends Handler {
+export default class loginHandler extends Handler {
     
     private key: AuthKey;
 
