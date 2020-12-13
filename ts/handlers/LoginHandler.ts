@@ -3,7 +3,8 @@ import { keys } from "../middleware/auth";
 import checker from '../checker';
 import Handler from './Handler';
 import { Express } from 'express-serve-static-core';
-
+import Lanchano from "@domipas/lanchano";
+const lanchano = new Lanchano();
 export default class LoginHandler extends Handler {
     
     private key: AuthKey;
@@ -39,6 +40,7 @@ export default class LoginHandler extends Handler {
             if (typeof loginkey != "string") throw new Error("Bad syntax");
             this.login(loginkey)? res.sendStatus(200) : res.sendStatus(403);
         } catch (error) {
+            lanchano.logError("StatusAPI", error);
             res.status(417).end(error.message);
         }
     }

@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { AuthKey } from "../interfaces";
-import { Lanchano } from "@domipas/lanchano";
+import Lanchano from "@domipas/lanchano";
 const logger = new Lanchano();
 // Load apikeys
 export const keys: AuthKey[] = (fs.existsSync('./config'))? 

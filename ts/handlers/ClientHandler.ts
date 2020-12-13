@@ -2,6 +2,8 @@ import { Express } from 'express-serve-static-core';
 import { Result } from "../interfaces";
 import checker from "../checker";
 import Handler from "./Handler";
+import Lanchano from "@domipas/lanchano";
+const lanchano = new Lanchano();
 
 export default class ClientHandler extends Handler {
 
@@ -27,6 +29,7 @@ export default class ClientHandler extends Handler {
             res.writeHead(200, {'Content-Type': 'application/json'})
             .end(JSON.stringify(this.findLatestTime(this.checkscript.usersResult)));
         } catch (error) {
+            lanchano.logError("StatusAPI", error);
             res.status(500).end(error.message);
         }
     }
@@ -42,6 +45,7 @@ export default class ClientHandler extends Handler {
             }
             !(results.length!=0)?res.sendStatus(404):null;
         } catch (error) {
+            lanchano.logError("StatusAPI", error);
             res.status(417).end(error.message);
         }
     }
