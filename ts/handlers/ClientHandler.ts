@@ -1,8 +1,7 @@
-import { Result } from "../interfaces";
+import { Result, App, Req, Res } from "../interfaces";
 import checker from "../checker";
 import Handler from "./Handler";
 import Lanchano from "@domipas/lanchano";
-import { App, Req, Res } from '../types';
 const lanchano = new Lanchano();
 
 export default class ClientHandler extends Handler {
