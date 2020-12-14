@@ -1,6 +1,7 @@
 import fs from 'fs';
 import { AuthKey } from "../interfaces";
 import Lanchano from "@domipas/lanchano";
+import { Next, Req, Res } from '../types';
 const logger = new Lanchano();
 // Load apikeys
 export const keys: AuthKey[] = (fs.existsSync('./config'))? 
@@ -8,7 +9,7 @@ export const keys: AuthKey[] = (fs.existsSync('./config'))?
     JSON.parse(fs.readFileSync("./tests/test_keys.json", "utf8"));
 
 // API Authorization
-export default function auth(req : any, res : any, next : any) : void {
+export default function auth(req : Req, res : Res, next : Next) : void {
     if (fs.existsSync('./config')) {
         res.once("finish", () => {
             logger.logRequest("StatusAPI", req, res);

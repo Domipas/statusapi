@@ -1,8 +1,8 @@
-import { Express } from 'express-serve-static-core';
 import { Result } from "../interfaces";
 import checker from "../checker";
 import Handler from "./Handler";
 import Lanchano from "@domipas/lanchano";
+import { App, Req, Res } from '../types';
 const lanchano = new Lanchano();
 
 export default class ClientHandler extends Handler {
@@ -11,7 +11,7 @@ export default class ClientHandler extends Handler {
         super(newchecker);
     }
 
-    public handle(app : Express) : void {
+    public handle(app : App) : void {
         app.get('/clients',         (q,s)=>{this.allClients(q,s)});
         app.get('/clients/',        (q,s)=>{this.allClients(q,s)});
         app.get('/client',          (q,s)=>{this.client(q,s)});
@@ -20,11 +20,11 @@ export default class ClientHandler extends Handler {
         app.get('/clients/time/',   (q,s)=>{this.clientTime(q,s)});
     }
 
-    private allClients(req : any, res : any) : void {
+    private allClients(req : Req, res : Res) : void {
         res.writeHead(200, {'Content-Type': 'application/json'})
         .end(JSON.stringify(this.checkscript.usersResult));
     }
-    private clientTime(req : any, res : any) : void {
+    private clientTime(req : Req, res : Res) : void {
         try {
             res.writeHead(200, {'Content-Type': 'application/json'})
             .end(JSON.stringify(this.findLatestTime(this.checkscript.usersResult)));
@@ -33,7 +33,7 @@ export default class ClientHandler extends Handler {
             res.status(500).end(error.message);
         }
     }
-    private client(req : any, res : any) : void {
+    private client(req : Req, res : Res) : void {
         try {
             if (typeof req.body["client"] == 'undefined') throw new Error("Bad syntax");
             const client: string[] = JSON.parse(req.body["client"]);

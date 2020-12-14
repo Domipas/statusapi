@@ -1,8 +1,8 @@
-import { Express } from 'express-serve-static-core';
 import { Result } from "../interfaces";
 import checker from "../checker";
 import Handler from "./Handler";
 import Lanchano from "@domipas/lanchano";
+import { App, Req, Res } from "../types";
 const lanchano = new Lanchano();
 
 export default class ServiceHandler extends Handler {
@@ -11,7 +11,7 @@ export default class ServiceHandler extends Handler {
         super(newchecker);
     }
 
-    public handle(app : Express): void {
+    public handle(app : App): void {
         app.get('/',            (q,s)=>{this.allServices(q,s)});
         app.get('/time',        (q,s)=>{this.servicesTime(q,s)});
         app.get('/time/',       (q,s)=>{this.servicesTime(q,s)});
@@ -19,11 +19,11 @@ export default class ServiceHandler extends Handler {
         app.get('/service/',    (q,s)=>{this.service(q,s)});
     }
 
-    private allServices(req : any, res : any) {
+    private allServices(req : Req, res : Res) {
         res.writeHead(200, {'Content-Type': 'application/json'})
         .end(JSON.stringify(this.checkscript.testsResult));
     }
-    private servicesTime(req : any, res : any) {
+    private servicesTime(req : Req, res : Res) {
         try {
             res.writeHead(200, {'Content-Type': 'application/json'})
             .end(JSON.stringify(this.findLatestTime(this.checkscript.testsResult)));
@@ -32,7 +32,7 @@ export default class ServiceHandler extends Handler {
             res.status(500).end(error.message);
         }
     }
-    private service(req : any, res : any) : void {
+    private service(req : Req, res : Res) : void {
         try {
             if (typeof req.body["service"] == 'undefined') throw new Error("Bad syntax");
             const service: string[] = JSON.parse(req.body["service"]);
