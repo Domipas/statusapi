@@ -3,8 +3,8 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import RateLimit from 'express-rate-limit';
 import express from 'express';
-import { Express } from 'express-serve-static-core';
 import auth from './auth';
+import { App } from '../interfaces';
 
 export default class Middleware {
 
@@ -13,7 +13,7 @@ export default class Middleware {
         max: 15
     });
 
-    constructor(app: Express) {
+    constructor(app: App) {
         app.use(this.limiter);
         app.use(helmet());
         app.use(morgan('common'));

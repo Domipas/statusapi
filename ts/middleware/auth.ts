@@ -1,7 +1,6 @@
 import fs from 'fs';
-import { AuthKey } from "../interfaces";
+import { AuthKey, Next, Req, Res } from "../interfaces";
 import Lanchano from "@domipas/lanchano";
-import { Next, Req, Res } from '../types';
 const logger = new Lanchano();
 // Load apikeys
 export const keys: AuthKey[] = (fs.existsSync('./config'))? 
@@ -10,13 +9,12 @@ export const keys: AuthKey[] = (fs.existsSync('./config'))?
 
 // API Authorization
 export default function auth(req : Req, res : Res, next : Next) : void {
-    if (fs.existsSync('./config')) {
+    if (fs.existsSync('./config/Lanchano')) {
         res.once("finish", () => {
             logger.logRequest("StatusAPI", req, res);
         });
     }
     
-    (fs.existsSync('./config'))? logger.logRequest("StatusAPI", req): null ;
     if (req.method == "OPTIONS") {
         next();
     } else {

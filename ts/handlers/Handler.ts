@@ -1,6 +1,5 @@
 import checker from "../checker";
-import { Result } from '../interfaces';
-import { App } from '../types';
+import { Result, App } from '../interfaces';
 
 export default abstract class Handler {
     protected checkscript: checker;
