@@ -1,6 +1,6 @@
-import { Express } from 'express-serve-static-core';
 import checker from "../checker";
 import { Result } from '../interfaces';
+import { App } from '../types';
 
 export default abstract class Handler {
     protected checkscript: checker;
@@ -9,7 +9,7 @@ export default abstract class Handler {
         this.checkscript = newchecker;
     }
 
-    public abstract handle(app : Express) : void
+    public abstract handle(app : App) : void
 
     protected findLatestTime(data : Result[]) : Date {
         let checkTime : Date = new Date(0);

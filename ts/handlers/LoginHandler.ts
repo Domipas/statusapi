@@ -2,8 +2,9 @@ import { AuthKey } from "../interfaces";
 import { keys } from "../middleware/auth";
 import checker from '../checker';
 import Handler from './Handler';
-import { Express } from 'express-serve-static-core';
-
+import Lanchano from "@domipas/lanchano";
+import { App, Req, Res } from "../types";
+const lanchano = new Lanchano();
 export default class LoginHandler extends Handler {
     
     private key: AuthKey;
@@ -18,7 +19,7 @@ export default class LoginHandler extends Handler {
         });
     }
 
-    public handle(app: Express): void {
+    public handle(app: App): void {
         app.get('/login',   (q,s)=>{this.authLogin(q,s)});
         app.get('/login/',  (q,s)=>{this.authLogin(q,s)});
         app.post('/login',  (q,s)=>{this.authLogin(q,s)});
@@ -32,13 +33,14 @@ export default class LoginHandler extends Handler {
             return false;
         }
     }
-    private authLogin(req : any, res : any) : void {
+    private authLogin(req : Req, res : Res) : void {
         try {
             if (typeof req.body["loginkey"] == 'undefined') throw new Error("Bad syntax");
             const loginkey: string = req.body["loginkey"];
             if (typeof loginkey != "string") throw new Error("Bad syntax");
             this.login(loginkey)? res.sendStatus(200) : res.sendStatus(403);
         } catch (error) {
+            lanchano.logError("StatusAPI", error);
             res.status(417).end(error.message);
         }
     }

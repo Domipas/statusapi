@@ -1,5 +1,5 @@
-import { Express } from 'express-serve-static-core';
 import checker from "../checker";
+import { App, Req, Res } from '../types';
 import Handler from "./Handler";
 
 export default class ServerHandler extends Handler {
@@ -8,7 +8,7 @@ export default class ServerHandler extends Handler {
         super(newchecker)
     }
 
-    public handle(app : Express): void {
+    public handle(app : App): void {
         app.get('/version',         (q,s)=>{this.version(q,s)});
         app.get('/version/',        (q,s)=>{this.version(q,s)});
         app.post('/update',         (q,s)=>{this.update(q,s)});
@@ -17,14 +17,14 @@ export default class ServerHandler extends Handler {
         app.post('/clients/update/',(q,s)=>{this.updateClients(q,s)});
     }
 
-    private version(req : any, res : any) : void {
+    private version(req : Req, res : Res) : void {
         res.status(200).end(process.env.npm_package_version);
     }
-    private update(req : any, res : any) : void {
+    private update(req : Req, res : Res) : void {
         this.checkscript.check();
         res.sendStatus(200);
     }
-    private updateClients(req : any, res : any) : void {
+    private updateClients(req : Req, res : Res) : void {
         this.checkscript.checkClients();
         res.sendStatus(200);
     }
