@@ -23,8 +23,9 @@ export default class checker {
         } else { this.clientTests = this.tests = [] }
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private generateTests(jsonData: any) : Test[] {
-        let data : Test[] = [];
+        const data : Test[] = [];
         for (let i = 0; i < jsonData.length; i++) {
             const element = jsonData[i];
             switch (element.type) {
@@ -53,7 +54,7 @@ export default class checker {
         return this.clientTests
     }
     public get testsResult() : Result[] {
-        let results : Result[] = [];
+        const results : Result[] = [];
         for (let i = 0; i < this.tests.length; i++) {
             const element = this.tests[i];
             results.push(element.result);
@@ -61,7 +62,7 @@ export default class checker {
         return results;
     }
     public get usersResult() : Result[] {
-        let results : Result[] = [];
+        const results : Result[] = [];
         for (let i = 0; i < this.clientTests.length; i++) {
             const element = this.clientTests[i];
             results.push(element.result);
@@ -70,16 +71,16 @@ export default class checker {
     }
 
     /** Methods: */
-    public async check() {
-        for await (let element of this.tests) {
+    public async check() : Promise<void> {
+        for await (const element of this.tests) {
             element.checkTest();
         }
-        for await (let element of this.clientTests) {
+        for await (const element of this.clientTests) {
             element.checkTest();
         }
     }
-    public async checkClients() {
-        for await (let element of this.clientTests) {
+    public async checkClients() : Promise<void> {
+        for await (const element of this.clientTests) {
             element.checkTest();
         }
     }

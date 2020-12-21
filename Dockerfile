@@ -15,8 +15,6 @@ ARG npm_token
 
 RUN echo "//npm.pkg.github.com/:_authToken="${npm_token}" \n @domipas:registry=https://npm.pkg.github.com \n always-auth=true" > .npmrc
 
-RUN cat .npmrc
-
 #RUN npm install
 # If you are building your code for production
 RUN npm ci --only=production
