@@ -2,7 +2,7 @@ import { AuthKey, App, Req, Res } from "../interfaces";
 import { keys } from "../middleware/auth";
 import checker from '../checker';
 import Handler from './Handler';
-import Lanchano from "@domipas/lanchano";
+import { Lanchano } from "@domipas/lanchano";
 const lanchano = new Lanchano();
 export default class LoginHandler extends Handler {
     

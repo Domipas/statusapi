@@ -20,7 +20,7 @@ export default abstract class Handler {
         return checkTime;
     }
     protected findResult(data : Result[], names : string[]) : Result[] {
-        let results : Result[] = [];
+        const results : Result[] = [];
         data.forEach((element: Result) => {
             names.forEach((dataToCheck: string) => {
                 if (element.name==dataToCheck) {

@@ -25,9 +25,9 @@ export default function serverapp(checkscript: checker) : void {
     http.createServer(app).listen(process.env.PORT || 8284);
     console.log('Server running on port '+ (process.env.PORT || 8284));
     if (fs.existsSync('./ssl')) {
-        var options = {
+        const options = {
             key: fs.readFileSync('./ssl/key.pem', 'utf8'),
-            cert: fs.readFileSync('./ssl/server.crt', 'utf8')
+            cert: fs.readFileSync('./ssl/server.crt', 'utf8'),
         };
         https.createServer(options , app).listen(process.env.SSLPORT || 8285);
         console.log('SSL Server running on port '+ (process.env.SSLPORT || 8285)); 

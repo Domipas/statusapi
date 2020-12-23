@@ -13,9 +13,9 @@ export default class IPTest extends Test {
         this.latency = -1;
     }
 
-    public async checkTest() {
+    public async checkTest() : Promise<void> {
         await ping.promise.probe(this.adres, {min_reply: 5})
-        .then((res : any) =>{
+        .then((res : ping.PingResponse) =>{
             if (res.alive) {
             this.status = 200;
             this.latency = parseInt(res.avg);
