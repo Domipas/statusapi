@@ -7,7 +7,7 @@
     "dev": "tsc && node build/index.js",
     "lint": "eslint -c .eslintrc --ext .ts ./ts",
     "start": "node build/index.js",
-    "postinstall": "tsc"
+    "build": "tsc"
   },
   "author": "Domipas",
   "license": "MIT",
