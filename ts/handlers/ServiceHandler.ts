@@ -18,11 +18,11 @@ export default class ServiceHandler extends Handler {
         app.get('/service/',    (q,s)=>{this.service(q,s)});
     }
 
-    private allServices(req : Req, res : Res) {
+    private allServices(_req : Req, res : Res) {
         res.writeHead(200, {'Content-Type': 'application/json'})
         .end(JSON.stringify(this.checkscript.testsResult));
     }
-    private servicesTime(req : Req, res : Res) {
+    private servicesTime(_req : Req, res : Res) {
         try {
             res.writeHead(200, {'Content-Type': 'application/json'})
             .end(JSON.stringify(this.findLatestTime(this.checkscript.testsResult)));
