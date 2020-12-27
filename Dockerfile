@@ -19,7 +19,7 @@ RUN echo "//npm.pkg.github.com/:_authToken="${npm_token}" \n @domipas:registry=h
 # If you are building your code for production
 RUN npm ci --only=production
 
-RUN npm run postinstall
+RUN npm run build
 
 # Expose ports
 EXPOSE 8284

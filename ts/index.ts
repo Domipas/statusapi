@@ -1,3 +1,6 @@
+import http from 'http';
+import https from 'https';
+import fs from 'fs';
 import schedule = require('node-schedule');
 import checker from "./checker";
 import serverapp from "./app";
@@ -7,4 +10,15 @@ const checkscript = new checker();
 checkscript.check();
 setTimeout(() => { checkscript.check(); }, 5000);
 schedule.scheduleJob('* */3 * * *', () => { checkscript.check(); });
-serverapp(checkscript);
+const app = serverapp(checkscript);
+//Server options and starting.
+http.createServer(app).listen(process.env.PORT || 8284);
+console.log('Server running on port '+ (process.env.PORT || 8284));
+if (fs.existsSync('./ssl')) {
+    const options = {
+        key: fs.readFileSync('./ssl/key.pem', 'utf8'),
+        cert: fs.readFileSync('./ssl/server.crt', 'utf8'),
+    };
+    https.createServer(options , app).listen(process.env.SSLPORT || 8285);
+    console.log('SSL Server running on port '+ (process.env.SSLPORT || 8285)); 
+}

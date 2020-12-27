@@ -19,11 +19,11 @@ export default class ClientHandler extends Handler {
         app.get('/clients/time/',   (q,s)=>{this.clientTime(q,s)});
     }
 
-    private allClients(req : Req, res : Res) : void {
+    private allClients(_req : Req, res : Res) : void {
         res.writeHead(200, {'Content-Type': 'application/json'})
         .end(JSON.stringify(this.checkscript.usersResult));
     }
-    private clientTime(req : Req, res : Res) : void {
+    private clientTime(_req : Req, res : Res) : void {
         try {
             res.writeHead(200, {'Content-Type': 'application/json'})
             .end(JSON.stringify(this.findLatestTime(this.checkscript.usersResult)));
