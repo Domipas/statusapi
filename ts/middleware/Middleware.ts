@@ -7,7 +7,7 @@ import express from 'express';
 import auth from './auth';
 import { App } from '../interfaces';
 import { middleware } from "@domipas/lanchano";
-const isLogging = fs.existsSync('./config/Lanchano/config.json');
+const isLogging = fs.existsSync('./config/Lanchano/');
 
 export default class Middleware {
 
