@@ -8,10 +8,10 @@ export default abstract class Handler {
         this.checkscript = newchecker;
     }
 
-    public abstract handle(app : App) : void
+    public abstract handle(app: App): void
 
-    protected findLatestTime(data : Result[]) : Date {
-        let checkTime : Date = new Date(0);
+    protected findLatestTime(data: Result[]): Date {
+        let checkTime: Date = new Date(0);
         data.forEach((element: Result) => {
             if ((checkTime.getTime() < (element.timeChecked.getTime()))) {
                 checkTime = element.timeChecked;
@@ -19,11 +19,11 @@ export default abstract class Handler {
         });
         return checkTime;
     }
-    protected findResult(data : Result[], names : string[]) : Result[] {
-        const results : Result[] = [];
+    protected findResult(data: Result[], names: string[]): Result[] {
+        const results: Result[] = [];
         data.forEach((element: Result) => {
             names.forEach((dataToCheck: string) => {
-                if (element.name==dataToCheck) {
+                if (element.name == dataToCheck) {
                     results.push(element);
                 }
             });

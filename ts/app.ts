@@ -7,9 +7,9 @@ import checker from './checker';
 import Middleware from './middleware/Middleware';
 import { App } from './interfaces';
 
-export default function serverapp(checkscript: checker) : App {
+export default function serverapp(checkscript: checker): App {
     const app = express();
-    
+
     //Using middleware:
     new Middleware(app);
 

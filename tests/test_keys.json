@@ -1,17 +1,49 @@
 [
     {
         "name": "priv",
-        "endpoints": ["/", "/time", "/clients", "/clients/time", "/service", "/version", "/time/", "/clients/", "/clients/time/", "/service/", "/version/", "/login", "/login/", "/update", "/update/", "/clients/update", "/clients/update/", "/client/", "/client"],
+        "endpoints": [
+            "/",
+            "/time",
+            "/clients",
+            "/clients/time",
+            "/service",
+            "/version",
+            "/time/",
+            "/clients/",
+            "/clients/time/",
+            "/service/",
+            "/version/",
+            "/login",
+            "/login/",
+            "/update",
+            "/update/",
+            "/clients/update",
+            "/clients/update/",
+            "/client/",
+            "/client"
+        ],
         "key": "A4FmQ59LXt7eLr5HXr9CDlf4VaMNyqSWppIbFKhkZFCwHLzW733EAKqwWwGmfnV59qrBSje3qoS2seXwDnVehazMk935sD7Bgxl"
     },
     {
         "name": "null",
-        "endpoints": ["/time", "/time/", "/version", "/version/"],
+        "endpoints": [
+            "/time",
+            "/time/",
+            "/version",
+            "/version/"
+        ],
         "key": "null"
     },
     {
         "name": "login",
-        "endpoints": ["/clients", "/clients/time", "/clients/", "/clients/time/", "/clients/update", "/clients/update/"],
+        "endpoints": [
+            "/clients",
+            "/clients/time",
+            "/clients/",
+            "/clients/time/",
+            "/clients/update",
+            "/clients/update/"
+        ],
         "key": "Sx5gpwNnOdD0vtx1x4Ymau4LowkCwurF0cWWSc8b2Ns4gBZ177ZUtPSQo1LwS63qOg2jKSPhFFK6gGJ4ev7SmX9WIi1K4caz7NC"
     }
 ]

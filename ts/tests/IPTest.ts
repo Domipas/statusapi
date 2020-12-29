@@ -3,7 +3,7 @@ import { Result } from "../interfaces";
 import Test from './Test';
 
 export default class IPTest extends Test {
-  
+
     adres: string;
     latency: number;
 
@@ -13,20 +13,20 @@ export default class IPTest extends Test {
         this.latency = -1;
     }
 
-    public async checkTest() : Promise<void> {
-        await ping.promise.probe(this.adres, {min_reply: 5})
-        .then((res : ping.PingResponse) =>{
-            if (res.alive) {
-            this.status = 200;
-            this.latency = parseInt(res.avg);
-            this.timeChecked = new Date();
-            } else {
-            this.status = 503;
-            }
-        });
+    public async checkTest(): Promise<void> {
+        await ping.promise.probe(this.adres, { min_reply: 5 })
+            .then((res: ping.PingResponse) => {
+                if (res.alive) {
+                    this.status = 200;
+                    this.latency = parseInt(res.avg);
+                    this.timeChecked = new Date();
+                } else {
+                    this.status = 503;
+                }
+            });
     }
 
-    public get result() : Result {
+    public get result(): Result {
         return {
             name: this.name,
             status: this.status,

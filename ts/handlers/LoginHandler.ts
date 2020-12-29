@@ -5,12 +5,12 @@ import Handler from './Handler';
 import { Lanchano } from "@domipas/lanchano";
 const lanchano = new Lanchano();
 export default class LoginHandler extends Handler {
-    
+
     private key: AuthKey;
 
     constructor(newchecker: checker) {
         super(newchecker);
-        this.key = {name: "", endpoints: [], key: ""};
+        this.key = { name: "", endpoints: [], key: "" };
         keys.forEach(element => {
             if (element.name == "login") {
                 this.key = element;
@@ -19,25 +19,25 @@ export default class LoginHandler extends Handler {
     }
 
     public handle(app: App): void {
-        app.get('/login',   (q,s)=>{this.authLogin(q,s)});
-        app.get('/login/',  (q,s)=>{this.authLogin(q,s)});
-        app.post('/login',  (q,s)=>{this.authLogin(q,s)});
-        app.post('/login/', (q,s)=>{this.authLogin(q,s)});
+        app.get('/login', (q, s) => { this.authLogin(q, s) });
+        app.get('/login/', (q, s) => { this.authLogin(q, s) });
+        app.post('/login', (q, s) => { this.authLogin(q, s) });
+        app.post('/login/', (q, s) => { this.authLogin(q, s) });
     }
 
-    private login(loginKey : string) : boolean {
+    private login(loginKey: string): boolean {
         if (loginKey == this.key.key) {
             return true;
         } else {
             return false;
         }
     }
-    private authLogin(req : Req, res : Res) : void {
+    private authLogin(req: Req, res: Res): void {
         try {
             if (typeof req.body["loginkey"] == 'undefined') throw new Error("Bad syntax");
             const loginkey: string = req.body["loginkey"];
             if (typeof loginkey != "string") throw new Error("Bad syntax");
-            this.login(loginkey)? res.sendStatus(200) : res.sendStatus(403);
+            this.login(loginkey) ? res.sendStatus(200) : res.sendStatus(403);
         } catch (error) {
             lanchano.logError("StatusAPI", error);
             res.status(417).end(error.message);
