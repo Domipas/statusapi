@@ -1,5 +1,7 @@
 import http, { IncomingMessage } from 'http';
 import Test from './Test';
+import Lanchano from "@domipas/lanchano";
+const lanchano = new Lanchano.Lanchano();
 
 export default class HttpTest extends Test {
 
@@ -10,9 +12,15 @@ export default class HttpTest extends Test {
     }
 
     public async checkTest(): Promise<void> {
-        http.request(this.adres, (res: IncomingMessage) => {
-            this.status = res.statusCode ?? 0;
+        try {
+            http.request(this.adres, (res: IncomingMessage) => {
+                this.status = res.statusCode ?? 0;
+                this.timeChecked = new Date();
+            }).end();
+        } catch (error) {
+            this.status = 503;
             this.timeChecked = new Date();
-        }).end();
+            lanchano.logError("StatusAPI", error);
+        }
     }
 }
