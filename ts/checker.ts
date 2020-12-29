@@ -10,22 +10,22 @@ export default class checker {
     private _tests: Test[];
 
     constructor() {
-        (!fs.existsSync('./tmp'))? fs.mkdirSync('./tmp') : null;
-        if (fs.existsSync('./config')){
+        (!fs.existsSync('./tmp')) ? fs.mkdirSync('./tmp') : null;
+        if (fs.existsSync('./config')) {
             this._clientTests = this.generateTests(
-                (fs.existsSync("./config/users.json"))? 
-                JSON.parse(fs.readFileSync("./config/users.json", "utf8")) : []
+                (fs.existsSync("./config/users.json")) ?
+                    JSON.parse(fs.readFileSync("./config/users.json", "utf8")) : []
             );
             this._tests = this.generateTests(
-                (fs.existsSync("./config/tests.json"))? 
-                JSON.parse(fs.readFileSync("./config/tests.json", "utf8")) : []
+                (fs.existsSync("./config/tests.json")) ?
+                    JSON.parse(fs.readFileSync("./config/tests.json", "utf8")) : []
             )
         } else { this._clientTests = this._tests = [] }
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    private generateTests(jsonData: any) : Test[] {
-        const data : Test[] = [];
+    private generateTests(jsonData: any): Test[] {
+        const data: Test[] = [];
         for (let i = 0; i < jsonData.length; i++) {
             const element = jsonData[i];
             switch (element.type) {
@@ -45,33 +45,33 @@ export default class checker {
         }
         return data;
     }
-   
+
     /** Getters: */
-    public get tests() : Test[] {
+    public get tests(): Test[] {
         return this._tests;
     }
-    public get users() : Test[] {
+    public get users(): Test[] {
         return this._clientTests
     }
-    public get testsResult() : Result[] {
-        const results : Result[] = [];
+    public get testsResult(): Result[] {
+        const results: Result[] = [];
         for (let i = 0; i < this._tests.length; i++) {
             const element = this._tests[i];
             results.push(element.result);
         }
         return results;
     }
-    public get usersResult() : Result[] {
-        const results : Result[] = [];
+    public get usersResult(): Result[] {
+        const results: Result[] = [];
         for (let i = 0; i < this._clientTests.length; i++) {
             const element = this._clientTests[i];
             results.push(element.result);
         }
-        return results; 
+        return results;
     }
 
     /** Methods: */
-    public async check() : Promise<void> {
+    public async check(): Promise<void> {
         for await (const element of this._tests) {
             element.checkTest();
         }
@@ -79,7 +79,7 @@ export default class checker {
             element.checkTest();
         }
     }
-    public async checkClients() : Promise<void> {
+    public async checkClients(): Promise<void> {
         for await (const element of this._clientTests) {
             element.checkTest();
         }

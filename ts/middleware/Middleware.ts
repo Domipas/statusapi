@@ -12,7 +12,7 @@ const isLogging = fs.existsSync('./config/Lanchano');
 export default class Middleware {
 
     limiter = RateLimit({
-        windowMs: 1*60*1000, // 1 minute
+        windowMs: 1 * 60 * 1000, // 1 minute
         max: 15
     });
 
@@ -23,7 +23,7 @@ export default class Middleware {
         app.use(express.json()); // for parsing application/json
         app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
         app.use(cors());
-        isLogging? app.use(middleware("StatusAPI")): null;
+        isLogging ? app.use(middleware("StatusAPI")) : null;
         app.use(auth); // for API Authorization
     }
 }

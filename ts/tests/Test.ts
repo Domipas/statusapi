@@ -1,7 +1,7 @@
 import { Result } from "../interfaces";
 
 export default abstract class Test {
-    
+
     name: string;
     status: number;
     timeChecked: Date;
@@ -12,9 +12,9 @@ export default abstract class Test {
         this.timeChecked = new Date();
     }
 
-    public abstract checkTest() : void
+    public abstract checkTest(): void
 
-    public get result() : Result {
+    public get result(): Result {
         return {
             name: this.name,
             status: this.status,

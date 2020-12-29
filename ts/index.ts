@@ -13,12 +13,12 @@ schedule.scheduleJob('* */3 * * *', () => { checkscript.check(); });
 const app = serverapp(checkscript);
 //Server options and starting.
 http.createServer(app).listen(process.env.PORT || 8284);
-console.log('Server running on port '+ (process.env.PORT || 8284));
+console.log('Server running on port ' + (process.env.PORT || 8284));
 if (fs.existsSync('./ssl')) {
     const options = {
         key: fs.readFileSync('./ssl/key.pem', 'utf8'),
         cert: fs.readFileSync('./ssl/server.crt', 'utf8'),
     };
-    https.createServer(options , app).listen(process.env.SSLPORT || 8285);
-    console.log('SSL Server running on port '+ (process.env.SSLPORT || 8285)); 
+    https.createServer(options, app).listen(process.env.SSLPORT || 8285);
+    console.log('SSL Server running on port ' + (process.env.SSLPORT || 8285));
 }
