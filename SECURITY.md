@@ -3,7 +3,8 @@
 ## Supported Versions
 
 | Version | Supported          |
-| ------- | ------------------ |
+| ------- | ------------------ 
+| 2.2.6   | :white_check_mark: |
 | 2.2.5   | :white_check_mark: |
 | 2.2.4   | :white_check_mark: |
 | 2.2.3   | :white_check_mark: |
