@@ -3,7 +3,7 @@ import https from 'https';
 import Test from './Test';
 import _Lanchano from "@domipas/lanchano";
 import fs from "fs";
-const isLogging = fs.existsSync('./config/Lanchano/config.json');
+const isLogging = fs.existsSync('./config/Lanchano/');
 const lanchano = isLogging ? new _Lanchano() : undefined;
 
 export default class HttpsTest extends Test {
