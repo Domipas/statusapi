@@ -1,8 +1,10 @@
 import ping = require('ping');
 import { Result } from "../interfaces";
 import Test from './Test';
-import Lanchano from "@domipas/lanchano";
-const lanchano = new Lanchano.Lanchano()
+import _Lanchano from "@domipas/lanchano";
+import fs from "fs";
+const isLogging = fs.existsSync('./config/Lanchano/config.json');
+const lanchano = isLogging ? new _Lanchano.Lanchano() : undefined;
 
 export default class IPTest extends Test {
 
@@ -28,7 +30,7 @@ export default class IPTest extends Test {
             }).catch((error) => {
                 this.status = 503;
                 this.timeChecked = new Date();
-                lanchano.logError("StatusAPI", error);
+                if (isLogging) lanchano.logError("StatusAPI", error);
             })
     }
 
