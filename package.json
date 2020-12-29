@@ -12,7 +12,7 @@
   "author": "Domipas",
   "license": "MIT",
   "dependencies": {
-    "@domipas/lanchano": "^1.2.7",
+    "@domipas/lanchano": "^1.2.10",
     "@types/cors": "^2.8.9",
     "@types/express": "^4.17.9",
     "@types/express-rate-limit": "^5.1.0",
