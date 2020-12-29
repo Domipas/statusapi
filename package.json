@@ -1,6 +1,6 @@
 {
   "name": "statusapi",
-  "version": "2.2.9",
+  "version": "2.2.10",
   "description": "Server that performs tests to check if services are online",
   "scripts": {
     "test": "jest",
