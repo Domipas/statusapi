@@ -1,6 +1,6 @@
 {
   "name": "statusapi",
-  "version": "2.2.11",
+  "version": "2.2.12",
   "description": "Server that performs tests to check if services are online",
   "scripts": {
     "test": "jest",
@@ -12,7 +12,7 @@
   "author": "Domipas",
   "license": "MIT",
   "dependencies": {
-    "@domipas/lanchano": "^1.2.12",
+    "@domipas/lanchano": "^1.2.14",
     "@types/cors": "^2.8.9",
     "@types/express": "^4.17.9",
     "@types/express-rate-limit": "^5.1.0",

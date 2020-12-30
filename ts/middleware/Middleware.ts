@@ -13,7 +13,7 @@ export default class Middleware {
 
     limiter = RateLimit({
         windowMs: 1 * 60 * 1000, // 1 minute
-        max: 15
+        max: 200
     });
 
     constructor(app: App) {
