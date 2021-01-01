@@ -1,0 +1,20 @@
+repo:
+  - ./*
+  
+source:
+  - ts/**/*
+  
+testclasses:
+  - ts/tests/*
+  
+middleware:
+  - ts/middleware/*
+  
+handlers:
+  - ts/handlers/*
+  
+testing:
+  - tests/**/*
+
+github:
+  - .github/*
