@@ -1,6 +1,7 @@
 import fs from 'fs';
 import mylas from "@raouldeheer/mylas";
-import { AuthKey, Next, Req, Res } from "../interfaces";
+import { AuthKey } from "../interfaces";
+import { Next, Req, Res } from "@raouldeheer/tstypes";
 
 // Load apikeys
 export const keys: AuthKey[] = (fs.existsSync('./config')) ?

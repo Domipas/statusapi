@@ -1,5 +1,5 @@
 import checker from "../checker";
-import { App, Req, Res } from '../interfaces';
+import { App, Req, Res } from "@raouldeheer/tstypes";
 import Handler from "./Handler";
 
 export default class ServerHandler extends Handler {

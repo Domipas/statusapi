@@ -5,7 +5,7 @@ import helmet from 'helmet';
 import RateLimit from 'express-rate-limit';
 import express from 'express';
 import auth from './auth';
-import { App } from '../interfaces';
+import { App } from "@raouldeheer/tstypes";
 import { middleware } from "@domipas/lanchano";
 const isLogging = fs.existsSync('./config/Lanchano/');
 
