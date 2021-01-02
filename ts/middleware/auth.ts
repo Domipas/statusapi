@@ -1,10 +1,11 @@
 import fs from 'fs';
+import mylas from "@raouldeheer/mylas";
 import { AuthKey, Next, Req, Res } from "../interfaces";
 
 // Load apikeys
 export const keys: AuthKey[] = (fs.existsSync('./config')) ?
-    JSON.parse(fs.readFileSync("./config/apikeys.json", "utf8")) :
-    JSON.parse(fs.readFileSync("./tests/test_keys.json", "utf8"));
+    JSON.parse(mylas.loadS("./config/apikeys.json")) :
+    JSON.parse(mylas.loadS("./tests/test_keys.json"));
 
 // API Authorization
 export default function auth(req: Req, res: Res, next: Next): void {
