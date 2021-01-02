@@ -1,5 +1,6 @@
 import { TypeTest, Result } from "./interfaces";
 import fs from 'fs';
+import mylas from "@raouldeheer/mylas";
 import Test from "./tests/Test";
 import HttpTest from "./tests/HttpTest";
 import HttpsTest from "./tests/HttpsTest";
@@ -10,15 +11,15 @@ export default class checker {
     private _tests: Test[];
 
     constructor() {
-        (!fs.existsSync('./tmp')) ? fs.mkdirSync('./tmp') : null;
+        mylas.dir.mkS("./tmp");
         if (fs.existsSync('./config')) {
             this._clientTests = this.generateTests(
                 (fs.existsSync("./config/users.json")) ?
-                    JSON.parse(fs.readFileSync("./config/users.json", "utf8")) : []
+                    mylas.json.loadS("./config/users.json") : []
             );
             this._tests = this.generateTests(
                 (fs.existsSync("./config/tests.json")) ?
-                    JSON.parse(fs.readFileSync("./config/tests.json", "utf8")) : []
+                    mylas.json.loadS("./config/tests.json") : []
             )
         } else { this._clientTests = this._tests = [] }
     }
