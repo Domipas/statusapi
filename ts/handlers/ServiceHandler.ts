@@ -1,4 +1,5 @@
-import { Result, App, Req, Res } from "../interfaces";
+import { Result } from "../interfaces";
+import { App, Req, Res } from "@raouldeheer/tstypes";
 import checker from "../checker";
 import Handler from "./Handler";
 import _Lanchano from "@domipas/lanchano";
