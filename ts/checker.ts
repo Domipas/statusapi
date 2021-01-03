@@ -11,6 +11,7 @@ export default class checker {
     private _tests: Test[];
 
     constructor() {
+        mylas.dir.mkS("./tmp");
         if (fs.existsSync('./config')) {
             this._clientTests = this.generateTests(
                 (fs.existsSync("./config/users.json")) ?
