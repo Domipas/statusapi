@@ -1,6 +1,5 @@
 import http from 'http';
 import https from 'https';
-import fs from 'fs';
 import mylas from "@raouldeheer/mylas";
 import schedule = require('node-schedule');
 import checker from "./checker";
@@ -15,7 +14,7 @@ const app = serverapp(checkscript);
 //Server options and starting.
 http.createServer(app).listen(process.env.PORT || 8284);
 console.log('Server running on port ' + (process.env.PORT || 8284));
-if (fs.existsSync('./ssl')) {
+if (mylas.dir.checkS('./ssl')) {
     const options = {
         key: mylas.loadS("./ssl/key.pem"),
         cert: mylas.loadS("./ssl/server.crt"),

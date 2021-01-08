@@ -1,10 +1,7 @@
 import { IncomingMessage } from 'http';
 import https from 'https';
 import Test from './Test';
-import _Lanchano from "@domipas/lanchano";
-import fs from "fs";
-const isLogging = fs.existsSync('./config/Lanchano/');
-const lanchano = isLogging ? new _Lanchano() : undefined;
+import { lanchano } from "../middleware/Middleware";
 
 export default class HttpsTest extends Test {
 
@@ -24,7 +21,7 @@ export default class HttpsTest extends Test {
         } catch (error) {
             this.status = 503;
             this.timeChecked = new Date();
-            if (isLogging) lanchano.logError("StatusAPI", error);
+            lanchano?.logError("StatusAPI", error);
         }
     }
 }

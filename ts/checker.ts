@@ -1,6 +1,5 @@
 import { TypeTest, Result } from "./interfaces";
-import fs from 'fs';
-import mylas from "@raouldeheer/mylas";
+import { Dir, Json } from "@raouldeheer/mylas";
 import Test from "./tests/Test";
 import HttpTest from "./tests/HttpTest";
 import HttpsTest from "./tests/HttpsTest";
@@ -11,14 +10,14 @@ export default class checker {
     private _tests: Test[];
 
     constructor() {
-        if (fs.existsSync('./config')) {
+        if (Dir.checkS("./config")) {
             this._clientTests = this.generateTests(
-                (fs.existsSync("./config/users.json")) ?
-                    mylas.json.loadS("./config/users.json") : []
+                (Dir.checkS("./config/users.json")) ?
+                    Json.loadS("./config/users.json") : []
             );
             this._tests = this.generateTests(
-                (fs.existsSync("./config/tests.json")) ?
-                    mylas.json.loadS("./config/tests.json") : []
+                (Dir.checkS("./config/tests.json")) ?
+                    Json.loadS("./config/tests.json") : []
             )
         } else { this._clientTests = this._tests = [] }
     }
