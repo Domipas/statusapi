@@ -11,3 +11,7 @@ An opensource API that checks the status of websites and servers
 
 ## Setup
 [Setup documentation](https://github.com/Domipas/statusapi/wiki)
+
+## Supported Versions
+
+Check for supported versions at the [security policy](https://github.com/Domipas/statusapi/security/policy).  

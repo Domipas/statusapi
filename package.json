@@ -3,11 +3,11 @@
   "version": "2.2.14",
   "description": "Server that performs tests to check if services are online",
   "scripts": {
-    "test": "jest",
-    "dev": "tsc && node build/index.js",
-    "lint": "eslint -c .eslintrc --ext .ts ./ts",
+    "test": "jest --config='./tests/jest.config.js'",
+    "dev": "npm run build && node build/index.js",
+    "lint": "eslint -c ./configuration/.eslintrc --ext .ts ./ts",
     "start": "node build/index.js",
-    "build": "tsc"
+    "build": "tsc --build ./configuration/tsconfig.json"
   },
   "author": "Domipas",
   "license": "MIT",
