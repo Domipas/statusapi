@@ -7,7 +7,7 @@ import auth from './auth';
 import { App } from "@raouldeheer/tstypes";
 import Lanchano, { middleware } from "@domipas/lanchano";
 import { Dir } from "@raouldeheer/mylas";
-export const isLogging = Dir.checkS('./config/Lanchano/');
+const isLogging = Dir.checkS('./config/Lanchano/');
 export const lanchano = isLogging ? new Lanchano() : undefined;
 
 export default class Middleware {
