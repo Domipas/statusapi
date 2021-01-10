@@ -1,10 +1,9 @@
-import fs from 'fs';
-import { Json } from "@raouldeheer/mylas";
+import { Dir, Json } from "@raouldeheer/mylas";
 import { AuthKey } from "../interfaces";
 import { Next, Req, Res } from "@raouldeheer/tstypes";
 
 // Load apikeys
-export const keys: AuthKey[] = (fs.existsSync('./config')) ?
+export const keys: AuthKey[] = (Dir.checkS('./config')) ?
     Json.loadS<AuthKey[]>("./config/apikeys.json") :
     Json.loadS<AuthKey[]>("./tests/test_keys.json");
 

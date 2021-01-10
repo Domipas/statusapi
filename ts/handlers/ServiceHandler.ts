@@ -2,10 +2,7 @@ import { Result } from "../interfaces";
 import { App, Req, Res } from "@raouldeheer/tstypes";
 import checker from "../checker";
 import Handler from "./Handler";
-import _Lanchano from "@domipas/lanchano";
-import fs from "fs";
-const isLogging = fs.existsSync('./config/Lanchano/');
-const lanchano = isLogging ? new _Lanchano() : undefined;
+import { lanchano } from "../middleware/Middleware";
 
 export default class ServiceHandler extends Handler {
 
@@ -30,7 +27,7 @@ export default class ServiceHandler extends Handler {
             res.writeHead(200, { 'Content-Type': 'application/json' })
                 .end(JSON.stringify(this.findLatestTime(this.checkscript.testsResult)));
         } catch (error) {
-            if (isLogging) lanchano.logError("StatusAPI", error);
+            lanchano?.logError("StatusAPI", error);
             res.status(500).end(error.message);
         }
     }
@@ -46,7 +43,7 @@ export default class ServiceHandler extends Handler {
             }
             !(results.length != 0) ? res.sendStatus(404) : null;
         } catch (error) {
-            if (isLogging) lanchano.logError("StatusAPI", error);
+            lanchano?.logError("StatusAPI", error);
             res.status(417).end(error.message);
         }
     }

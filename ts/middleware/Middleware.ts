@@ -1,4 +1,3 @@
-import fs from 'fs';
 import cors from 'cors';
 import morgan from 'morgan';
 import helmet from 'helmet';
@@ -6,8 +5,10 @@ import RateLimit from 'express-rate-limit';
 import express from 'express';
 import auth from './auth';
 import { App } from "@raouldeheer/tstypes";
-import { middleware } from "@domipas/lanchano";
-const isLogging = fs.existsSync('./config/Lanchano/');
+import Lanchano, { middleware } from "@domipas/lanchano";
+import { Dir } from "@raouldeheer/mylas";
+const isLogging = Dir.checkS('./config/Lanchano/');
+export const lanchano = isLogging ? new Lanchano() : undefined;
 
 export default class Middleware {
 
