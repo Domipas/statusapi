@@ -1,6 +1,6 @@
 import http from 'http';
 import https from 'https';
-import mylas from "@raouldeheer/mylas";
+import mylas from "mylas";
 import schedule = require('node-schedule');
 import checker from "./checker";
 import serverapp from "./app";

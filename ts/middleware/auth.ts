@@ -1,4 +1,4 @@
-import { Dir, Json } from "@raouldeheer/mylas";
+import { Dir, Json } from "mylas";
 import { AuthKey } from "../interfaces";
 import { Next, Req, Res } from "@raouldeheer/tstypes";
 

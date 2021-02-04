@@ -1,5 +1,5 @@
 import { TypeTest, Result } from "./interfaces";
-import { Dir, Json } from "@raouldeheer/mylas";
+import { Dir, Json } from "mylas";
 import Test from "./tests/Test";
 import HttpTest from "./tests/HttpTest";
 import HttpsTest from "./tests/HttpsTest";
