@@ -13,7 +13,7 @@ export default class HttpTest extends Test {
 
     public async checkTest(): Promise<void> {
         try {
-            await dns.resolve4(this.adres);
+            await dns.resolve4(this.adres.replace("http://", ""));
             http.request(this.adres, (res: IncomingMessage) => {
                 this.status = res.statusCode ?? 0;
                 this.timeChecked = new Date();
