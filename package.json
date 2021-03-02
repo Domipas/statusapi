@@ -1,6 +1,6 @@
 {
   "name": "statusapi",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "description": "Server that performs tests to check if services are online",
   "scripts": {
     "test": "jest --config='./tests/jest.config.js'",
