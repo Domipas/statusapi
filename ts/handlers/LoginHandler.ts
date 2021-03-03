@@ -7,14 +7,14 @@ import { lanchano } from "../middleware/Middleware";
 
 export default class LoginHandler extends Handler {
 
-    private key: AuthKey;
+    private authKey: AuthKey;
 
     constructor(newchecker: checker) {
         super(newchecker);
-        this.key = { name: "", endpoints: [], key: "" };
+        this.authKey = { name: "", endpoints: [], key: "" };
         keys.forEach(element => {
             if (element.name == "login") {
-                this.key = element;
+                this.authKey = element;
             }
         });
     }
@@ -27,7 +27,7 @@ export default class LoginHandler extends Handler {
     }
 
     private login(loginKey: string): boolean {
-        if (loginKey == this.key.key) {
+        if (loginKey == this.authKey.key) {
             return true;
         } else {
             return false;
