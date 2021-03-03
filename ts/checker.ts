@@ -1,5 +1,5 @@
 import { TypeTest, Result } from "./interfaces";
-import { Dir, Json } from "mylas";
+import { Dir } from "mylas";
 import Test from "./tests/Test";
 import HttpTest from "./tests/HttpTest";
 import HttpsTest from "./tests/HttpsTest";
@@ -13,11 +13,11 @@ export default class checker {
         if (Dir.checkS("./config")) {
             this._clientTests = this.generateTests(
                 (Dir.checkS("./config/users.json")) ?
-                    Json.loadS("./config/users.json") : []
+                    JSON.loadS("./config/users.json") : []
             );
             this._tests = this.generateTests(
                 (Dir.checkS("./config/tests.json")) ?
-                    Json.loadS("./config/tests.json") : []
+                    JSON.loadS("./config/tests.json") : []
             )
         } else { this._clientTests = this._tests = [] }
     }

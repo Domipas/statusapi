@@ -1,11 +1,11 @@
-import { Dir, Json } from "mylas";
+import { Dir } from "mylas";
 import { AuthKey } from "../interfaces";
 import { Next, Req, Res } from "@raouldeheer/tstypes";
 
 // Load apikeys
 export const keys: AuthKey[] = (Dir.checkS('./config')) ?
-    Json.loadS<AuthKey[]>("./config/apikeys.json") :
-    Json.loadS<AuthKey[]>("./tests/test_keys.json");
+    JSON.loadS<AuthKey[]>("./config/apikeys.json") :
+    JSON.loadS<AuthKey[]>("./tests/test_keys.json");
 
 // API Authorization
 export default function auth(req: Req, res: Res, next: Next): void {
