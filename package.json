@@ -31,7 +31,7 @@
     "mylas": "^2.0.0",
     "node-schedule": "^2.0.0",
     "ping": "^0.4.1",
-    "tslib": "^2.2.0",
+    "tslib": "^2.3.0",
     "typescript": "^4.3.2"
   },
   "devDependencies": {
