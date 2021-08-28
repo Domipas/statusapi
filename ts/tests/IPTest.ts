@@ -1,7 +1,6 @@
 import ping = require('ping');
 import { Result } from "../interfaces";
 import Test from './Test';
-import { lanchano } from "../middleware/Middleware";
 
 export default class IPTest extends Test {
 
@@ -24,10 +23,9 @@ export default class IPTest extends Test {
                 } else {
                     this.status = 503;
                 }
-            }).catch((error) => {
+            }).catch(() => {
                 this.status = 503;
                 this.timeChecked = new Date();
-                lanchano?.logError("StatusAPI", error);
             })
     }
 
