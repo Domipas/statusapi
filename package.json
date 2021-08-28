@@ -28,7 +28,7 @@
     "express-rate-limit": "^5.3.0",
     "helmet": "^4.6.0",
     "morgan": "^1.10.0",
-    "mylas": "^2.0.3",
+    "mylas": "^2.1.1",
     "node-schedule": "^2.0.0",
     "ping": "^0.4.1",
     "tslib": "^2.3.1",
