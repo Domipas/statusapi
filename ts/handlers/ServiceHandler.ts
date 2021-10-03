@@ -2,7 +2,6 @@ import { Result } from "../interfaces";
 import { App, Req, Res } from "@raouldeheer/tstypes";
 import checker from "../checker";
 import Handler from "./Handler";
-import { lanchano } from "../middleware/Middleware";
 
 export default class ServiceHandler extends Handler {
 
@@ -11,11 +10,11 @@ export default class ServiceHandler extends Handler {
     }
 
     public handle(app: App): void {
-        app.get('/', (q, s) => { this.allServices(q, s) });
-        app.get('/time', (q, s) => { this.servicesTime(q, s) });
-        app.get('/time/', (q, s) => { this.servicesTime(q, s) });
-        app.get('/service', (q, s) => { this.service(q, s) });
-        app.get('/service/', (q, s) => { this.service(q, s) });
+        app.get('/', (q, s) => { this.allServices(q, s); });
+        app.get('/time', (q, s) => { this.servicesTime(q, s); });
+        app.get('/time/', (q, s) => { this.servicesTime(q, s); });
+        app.get('/service', (q, s) => { this.service(q, s); });
+        app.get('/service/', (q, s) => { this.service(q, s); });
     }
 
     private allServices(_req: Req, res: Res) {
@@ -27,8 +26,7 @@ export default class ServiceHandler extends Handler {
             res.writeHead(200, { 'Content-Type': 'application/json' })
                 .end(JSON.stringify(this.findLatestTime(this.checkscript.testsResult)));
         } catch (error) {
-            lanchano?.logError("StatusAPI", error);
-            res.status(500).end(error.message);
+            if (error instanceof Error) res.status(500).end(error.message);
         }
     }
     private service(req: Req, res: Res): void {
@@ -43,8 +41,7 @@ export default class ServiceHandler extends Handler {
             }
             !(results.length != 0) ? res.sendStatus(404) : null;
         } catch (error) {
-            lanchano?.logError("StatusAPI", error);
-            res.status(417).end(error.message);
+            if (error instanceof Error) res.status(417).end(error.message);
         }
     }
 }

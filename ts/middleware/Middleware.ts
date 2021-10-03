@@ -5,7 +5,6 @@ import RateLimit from 'express-rate-limit';
 import express from 'express';
 import auth from './auth';
 import { App } from "@raouldeheer/tstypes";
-export const lanchano: any = undefined;
 
 export default class Middleware {
 

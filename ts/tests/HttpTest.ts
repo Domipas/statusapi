@@ -1,6 +1,5 @@
 import http, { IncomingMessage } from 'http';
 import Test from './Test';
-import { lanchano } from "../middleware/Middleware";
 import { promises as dns } from 'dns';
 
 export default class HttpTest extends Test {
@@ -21,7 +20,6 @@ export default class HttpTest extends Test {
         } catch (error) {
             this.status = 503;
             this.timeChecked = new Date();
-            lanchano?.logError("StatusAPI", error);
         }
     }
 }
