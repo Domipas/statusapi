@@ -20,13 +20,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.4.1
+        uses: actions/setup-node@v2.5.0
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: "https://npm.pkg.github.com"
 
       - name: Cache node modules
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v2.1.7
         env:
           cache-name: cache-node-modules
         with:
