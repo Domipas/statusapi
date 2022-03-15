@@ -41,8 +41,9 @@ jobs:
       - name: Setup npmrc
         run: echo "//npm.pkg.github.com/:_authToken=${{secrets.NPM_TOKEN}}" > .npmrc
 
+      - run: npm install pnpm -g
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install
 
       - name: Run tests
-        run: npm test
+        run: pnpm test
