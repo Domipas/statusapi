@@ -15,11 +15,11 @@ ARG npm_token
 
 RUN echo "//npm.pkg.github.com/:_authToken="${npm_token}" \n @domipas:registry=https://npm.pkg.github.com \n always-auth=true" > .npmrc
 
-#RUN npm install
+RUN npm install pnpm -g
 # If you are building your code for production
-RUN npm ci --only=production
+RUN pnpm install --only=production
 
-RUN npm run build
+RUN pnpm run build
 
 # Expose ports
 EXPOSE 8284
