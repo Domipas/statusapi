@@ -1,4 +1,4 @@
-import ping = require('ping');
+import ping from 'ping';
 import { Result } from "../interfaces";
 import Test from './Test';
 

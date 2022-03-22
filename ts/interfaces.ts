@@ -1,3 +1,5 @@
+import { Application, Request, Response, NextFunction } from "express";
+
 export enum TypeTest {
     IP,
     HTTP,
@@ -14,3 +16,8 @@ export interface AuthKey {
     endpoints: string[];
     key: string;
 }
+
+export type App = Application;
+export type Req = Request;
+export type Res = Response;
+export type Next = NextFunction;
