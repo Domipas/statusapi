@@ -4,7 +4,7 @@ import helmet from 'helmet';
 import RateLimit from 'express-rate-limit';
 import express from 'express';
 import auth from './auth';
-import { App } from "@raouldeheer/tstypes";
+import { App } from '../interfaces';
 
 export default class Middleware {
 

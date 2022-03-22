@@ -1,6 +1,5 @@
 import { Dir } from "mylas";
-import { AuthKey } from "../interfaces";
-import { Next, Req, Res } from "@raouldeheer/tstypes";
+import { AuthKey, Next, Req, Res } from "../interfaces";
 
 // Load apikeys
 export const keys: AuthKey[] = (Dir.checkS('./config')) ?

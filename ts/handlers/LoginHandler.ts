@@ -1,5 +1,4 @@
-import { AuthKey } from "../interfaces";
-import { App, Req, Res } from "@raouldeheer/tstypes";
+import { App, AuthKey, Req, Res } from "../interfaces";
 import { keys } from "../middleware/auth";
 import checker from '../checker';
 import Handler from './Handler';
