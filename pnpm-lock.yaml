@@ -3,7 +3,6 @@ lockfileVersion: 5.3
 specifiers:
   '@types/cors': ^2.8.12
   '@types/express': ^4.17.13
-  '@types/express-rate-limit': ^6.0.0
   '@types/jest': ^27.4.1
   '@types/morgan': ^1.9.3
   '@types/node': ^17.0.21
@@ -31,7 +30,6 @@ specifiers:
 dependencies:
   '@types/cors': 2.8.12
   '@types/express': 4.17.13
-  '@types/express-rate-limit': 6.0.0_express@4.17.3
   '@types/jest': 27.4.1
   '@types/morgan': 1.9.3
   '@types/node': 17.0.21
@@ -731,15 +729,6 @@ packages:
 
   /@types/cors/2.8.12:
     resolution: {integrity: sha512-vt+kDhq/M2ayberEtJcIN/hxXy1Pk+59g2FV/ZQceeaTyCtCucjL2Q7FXlFjtWn4n15KCr1NE2lNNFhp0lEThw==}
-    dev: false
-
-  /@types/express-rate-limit/6.0.0_express@4.17.3:
-    resolution: {integrity: sha512-nZxo3nwU20EkTl/f2eGdndQkDIJYwkXIX4S3Vrp2jMdSdFJ6AWtIda8gOz0wiMuOFoeH/UUlCAiacz3x3eWNFA==}
-    deprecated: This is a stub types definition. express-rate-limit provides its own type definitions, so you do not need this installed.
-    dependencies:
-      express-rate-limit: 6.3.0_express@4.17.3
-    transitivePeerDependencies:
-      - express
     dev: false
 
   /@types/express-serve-static-core/4.17.28:
