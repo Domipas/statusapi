@@ -1,5 +1,5 @@
 import { TypeTest, Result } from "./interfaces";
-import { Dir } from "mylas";
+import { Dir, Json } from "mylas";
 import Test from "./tests/Test";
 import HttpTest from "./tests/HttpTest";
 import HttpsTest from "./tests/HttpsTest";
@@ -13,13 +13,13 @@ export default class checker {
         if (Dir.checkS("./config")) {
             this._clientTests = this.generateTests(
                 (Dir.checkS("./config/users.json")) ?
-                    JSON.loadS("./config/users.json") : []
+                    Json.loadS("./config/users.json") : []
             );
             this._tests = this.generateTests(
                 (Dir.checkS("./config/tests.json")) ?
-                    JSON.loadS("./config/tests.json") : []
-            )
-        } else { this._clientTests = this._tests = [] }
+                    Json.loadS("./config/tests.json") : []
+            );
+        } else { this._clientTests = this._tests = []; }
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -50,7 +50,7 @@ export default class checker {
         return this._tests;
     }
     public get users(): Test[] {
-        return this._clientTests
+        return this._clientTests;
     }
     public get testsResult(): Result[] {
         const results: Result[] = [];

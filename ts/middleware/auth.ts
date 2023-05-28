@@ -1,10 +1,10 @@
-import { Dir } from "mylas";
+import { Dir, Json } from "mylas";
 import { AuthKey, Next, Req, Res } from "../interfaces";
 
 // Load apikeys
 export const keys: AuthKey[] = (Dir.checkS('./config')) ?
-    JSON.loadS<AuthKey[]>("./config/apikeys.json") :
-    JSON.loadS<AuthKey[]>("./tests/test_keys.json");
+    Json.loadS<AuthKey[]>("./config/apikeys.json") :
+    Json.loadS<AuthKey[]>("./tests/test_keys.json");
 
 // API Authorization
 export default function auth(req: Req, res: Res, next: Next): void {
