@@ -29,7 +29,7 @@
     "node-schedule": "^2.1.1",
     "ping": "^0.4.4",
     "tslib": "^2.5.2",
-    "typescript": "^5.0.4"
+    "typescript": "^5.1.6"
   },
   "devDependencies": {
     "@types/jest": "^29.5.1",
