@@ -28,7 +28,7 @@
     "mylas": "^2.1.13",
     "node-schedule": "^2.1.1",
     "ping": "^0.4.4",
-    "tslib": "^2.5.2",
+    "tslib": "^2.6.0",
     "typescript": "^5.1.6"
   },
   "devDependencies": {
