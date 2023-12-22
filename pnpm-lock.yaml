@@ -18,8 +18,8 @@ dependencies:
     specifier: ^20.10.5
     version: 20.10.5
   '@types/node-schedule':
-    specifier: ^2.1.0
-    version: 2.1.0
+    specifier: ^2.1.5
+    version: 2.1.5
   '@types/ping':
     specifier: ^0.4.1
     version: 0.4.1
@@ -970,8 +970,8 @@ packages:
       '@types/node': 20.10.5
     dev: false
 
-  /@types/node-schedule@2.1.0:
-    resolution: {integrity: sha512-NiTwl8YN3v/1YCKrDFSmCTkVxFDylueEqsOFdgF+vPsm+AlyJKGAo5yzX1FiOxPsZiN6/r8gJitYx2EaSuBmmg==}
+  /@types/node-schedule@2.1.5:
+    resolution: {integrity: sha512-bN0MiplDBUxNMmlEi4iykjLYD7+Ze3DEevzliCn8WYuDwYSPj/5XFh8wZw+YXPLpLxiNWlIONYiQ67g/vowSMA==}
     dependencies:
       '@types/node': 20.10.5
     dev: false
