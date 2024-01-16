@@ -21,8 +21,8 @@ dependencies:
     specifier: ^2.1.5
     version: 2.1.5
   '@types/ping':
-    specifier: ^0.4.1
-    version: 0.4.1
+    specifier: ^0.4.4
+    version: 0.4.4
   '@types/supertest':
     specifier: ^2.0.12
     version: 2.0.12
@@ -981,8 +981,8 @@ packages:
     dependencies:
       undici-types: 5.26.5
 
-  /@types/ping@0.4.1:
-    resolution: {integrity: sha512-q/D+xQvoqrHvntvz2A0Pb0ImYwnN3zakluUp8O2qoogGoVMVbdY2K/ulxHcCh9TzYzVoojayHBa9gYQDIZ4v0A==}
+  /@types/ping@0.4.4:
+    resolution: {integrity: sha512-ifvo6w2f5eJYlXm+HiVx67iJe8WZp87sfa683nlqED5Vnt9Z93onkokNoWqOG21EaE8fMxyKPobE+mkPEyxsdw==}
     dev: false
 
   /@types/prettier@2.4.4:
